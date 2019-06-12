@@ -6,26 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.brom.activitiesapp.MainActivity">
 
-    <Button
-        android:id="@+id/startDetails"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="330dp"
-        android:fontFamily="serif-monospace"
-        android:onClick="sendMessage"
-        android:text="Go-to Details"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ListView
         android:id="@+id/listViewDisplay"
         android:layout_width="0dp"
@@ -37,6 +17,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startDetails" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

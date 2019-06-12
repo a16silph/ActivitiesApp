@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Toast.makeText(getApplicationContext(),
+                /*Toast.makeText(getApplicationContext(),
                         "Mountain: " + mountainNames[position] +
                                 "\n" +
                                 "Area: " + mountainLocations[position] +
                                 "\n" +
                                 "Height: " + mountainHeights[position] + " Meters",
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();*/
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences(getString(R.string.MyPrefsName), MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(getString(R.string.SavedMountainLocation), mountainLocations[position]);
                 editor.putInt(getString(R.string.SavedMountainHeight), mountainHeights[position]);
                 editor.apply();
+                sendMessage(view);
             }
         });
 
