@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">a16silph - assignment3</string>
     <string name="title_activity_details">details</string>
+    <string name="MyPrefsName">MyPrefsFile</string>
+    <string name="SavedMountainName">MountainName</string>
+    <string name="SavedMountainLocation">MountainLocation</string>
+    <string name="SavedMountainHeight">MountainHeight</string>
 </resources>

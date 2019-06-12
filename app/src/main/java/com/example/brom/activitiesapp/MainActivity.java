@@ -1,20 +1,17 @@
 package com.example.brom.activitiesapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
     private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
@@ -50,8 +47,17 @@ public class MainActivity extends AppCompatActivity {
                                 "\n" +
                                 "Height: " + mountainHeights[position] + " Meters",
                         Toast.LENGTH_SHORT).show();
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences(getString(R.string.MyPrefsName), MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString(getString(R.string.SavedMountainName), mountainNames[position]);
+                editor.putString(getString(R.string.SavedMountainLocation), mountainLocations[position]);
+                editor.putInt(getString(R.string.SavedMountainHeight), mountainHeights[position]);
+                editor.apply();
             }
         });
+
+
         // 1. Create a ListView as in previous assignment
         // 2. Create a new activity named "MountainDetailsActivity
         // 3. Create a new Layout file for the MountainDetailsActivity called
@@ -75,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Send button */
     public void sendMessage(View view)
     {
+
+
         // Do something in response to button
-        Intent intent = new Intent(this, details.class);
+        Intent intent = new Intent(this, mountainDetails.class);
         //EditText editText = (EditText) findViewById(R.id.activityDetails);
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message);
